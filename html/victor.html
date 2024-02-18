@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./my-file.css">
+</head>
+<body>
+    <section>
+        <input type="password" class="input">
+    </section>
+
+        
+
+
+    <script>
+        const input = document.querySelector('.input')
+        const section = document.querySelector('section')
+        const btn = document.createElement('button')
+        btn.textContent = 'show password';
+        const p = document.createElement('p')
+        p.style.fontSize = '20px';
+        btn.addEventListener('click',()=>{
+            p.textContent = input.value
+            if(input.value.length){
+                if(btn.textContent === 'show password'){
+                    btn.textContent="hide password";
+                    input.setAttribute('type','text')
+                    input.value = p.textContent;
+                }else{
+                    input.setAttribute('type','password')
+                    btn.textContent="show password";
+                    input.value = p.textContent;
+                }
+            }
+            input.focus()
+        })
+        section.appendChild(btn)
+    </script>
+</body>
+</html>
